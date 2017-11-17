@@ -113,7 +113,8 @@ def search_menu():
               '1: Exact Date\n'
               '2: Exact input\n'
               '3: Input pattern\n'
-              '4: Return to main menu\n')
+              '4: Exact minutes elapsed\n'
+              '5: Return to main menu\n')
         selected_menu = input('> ')
         if selected_menu == '1':
             search.exact_date()
@@ -122,6 +123,8 @@ def search_menu():
         elif selected_menu == '3':
             search.input_pattern()
         elif selected_menu == '4':
+            search.exact_minutes()
+        elif selected_menu == '5':
             clear_screen()
             menu()
         else:

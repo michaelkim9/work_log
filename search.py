@@ -108,6 +108,62 @@ class Search:
         input('Press any key to continue')
         clear_screen()
 
+    def exact_minutes(self):
+        '''Lists tasks by number of minutes that user inputs'''
+        search_min = input('Search by number of minutes to do task: ')
+        input_results = []
+        count = 1
+        clear_screen()
+
+        try:
+            search_min = int(search_min)
+        except ValueError:
+            clear_screen()
+            print('Not a valid number of minutes. Please try again.')
+            return self.exact_minutes()
+
+        for row in self.results:
+            if search_min == int(row['time_elapsed']):
+                input_results.append(row)
+
+        if input_results:
+            print('Tasks that took {} minutes.\n'
+                  'Please select one.'.format(search_min))
+            for row in input_results:
+                print('{}. {}'.format(count, row['task_name']))
+                count += 1
+            selected_task = input('Which entry would you like to see?\n> ')
+            clear_screen()
+        else:
+            clear_screen()
+            print('No tasks took {} minutes.\n'
+                  'Please try again'.format(search_min))
+            return self.exact_minutes()
+
+        try:
+            selected_task = int(selected_task)
+        except ValueError:
+            clear_screen()
+            print('Not a valid selection. Please try again.')
+            return self.exact_minutes()
+
+        try:
+            task = Task(input_results[selected_task - 1]['date'],
+                        input_results[selected_task - 1]['first_name'],
+                        input_results[selected_task - 1]['last_name'],
+                        input_results[selected_task - 1]['task_name'],
+                        input_results[selected_task - 1]['time_elapsed'],
+                        input_results[selected_task - 1]['notes'])
+        except IndexError:
+            clear_screen()
+            print('Not a valid input, please try again.')
+            return self.exact_minutes()
+
+        clear_screen()
+        print(task)
+        input('Press any key to continue')
+        clear_screen()
+
     def input_pattern(self):
         '''Lists tasks by regular expression input'''
         clear_screen()
