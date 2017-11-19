@@ -6,6 +6,7 @@ import datetime
 from tasks import Task
 from search import Search
 
+
 # Formatting for date
 date_format = '%m%d%Y'
 # Fields that will be used
