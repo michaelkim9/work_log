@@ -3,6 +3,7 @@
 
 ### Running the program
 
+Use Python 3 ONLY. Python 2 will not work for this.\
 To run the code, please run the following in Bash.
 
 ```bash
