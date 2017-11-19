@@ -6,7 +6,7 @@
 To run the code, please run the following in Bash.
 
 ```bash
-$ python3 work_log.py
+$ python3 work_log3.py
 ```
 
 ### The Task
